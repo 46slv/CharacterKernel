@@ -80,3 +80,12 @@ The exact runtime/candidate/evidence tuple is recorded by the local
 deformation is deliberately recorded as a fixture probe, not a general fitting
 rule. Identity fitting, full cloth/pattern authoring, expressions, tracking,
 consumer export, and production visual approval remain out of scope.
+
+### Reuse boundary
+
+Reusable in this port: the existing `SurfaceAttachment` evaluator, deterministic
+topology/semantic/UV hashing, dependency closure, separate source/result
+identity, immutable variant selection, batch validation, and fresh-process
+reporting. Fixture-specific and intentionally not promoted: the low-poly ring
+geometry/materials, waistband face list, buckle dimensions, and the
+basis-relative lower-body depth shape-key deformation.
