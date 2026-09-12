@@ -1,0 +1,21 @@
+# Local/private evidence
+evidence/local/
+*.jsonl
+*.log
+
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+*.local.*
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

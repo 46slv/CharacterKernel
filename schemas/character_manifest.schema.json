@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/46slv/CharacterKernel/schemas/character_manifest.schema.json",
+  "title": "CharacterKernel Manifest",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "character_id", "kernel", "assets"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "character_id": {"type": "string", "minLength": 1},
+    "kernel": {
+      "type": "object",
+      "required": ["topology_family", "topology_revision", "rig_schema"],
+      "properties": {
+        "topology_family": {"type": "string", "minLength": 1},
+        "topology_revision": {"type": "string", "minLength": 1},
+        "semantic_revision": {"type": ["string", "null"]},
+        "uv_revision": {"type": ["string", "null"]},
+        "rig_schema": {"type": "string", "minLength": 1}
+      }
+    },
+    "assets": {
+      "type": "object",
+      "properties": {
+        "hair": {"type": ["string", "null"]},
+        "garments": {"type": "array", "items": {"type": "string"}},
+        "accessories": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "body_parameters": {"type": "object", "additionalProperties": {"type": "number"}}
+  }
+}
