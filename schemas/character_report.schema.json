@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/46slv/CharacterKernel/schemas/character_report.schema.json",
+  "title": "CharacterKernel Character Report",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "status", "source", "body", "dependencies", "checks"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "status": {"type": "string", "enum": ["PASS", "FAIL", "PARTIAL", "UNSUPPORTED"]},
+    "source": {
+      "type": "object",
+      "required": ["runtime", "candidate_revision"],
+      "properties": {
+        "runtime": {"type": "string", "minLength": 1},
+        "candidate_revision": {"type": "string", "minLength": 1}
+      }
+    },
+    "body": {
+      "type": "object",
+      "required": ["vertex_count", "polygon_count", "topology_hash", "rest_shape_hash"],
+      "properties": {
+        "vertex_count": {"type": "integer", "minimum": 0},
+        "polygon_count": {"type": "integer", "minimum": 0},
+        "topology_hash": {"type": "string", "minLength": 1},
+        "rest_shape_hash": {"type": "string", "minLength": 1},
+        "semantic_hash": {"type": ["string", "null"]},
+        "uv_hash": {"type": ["string", "null"]}
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "rig_schema_revision": {"type": ["string", "null"]},
+        "rig_instance_revision": {"type": ["string", "null"]},
+        "bind_revision": {"type": ["string", "null"]},
+        "garment_revision": {"type": ["string", "null"]},
+        "hair_revision": {"type": ["string", "null"]}
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "status"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "status": {"type": "string", "enum": ["PASS", "FAIL", "UNKNOWN", "UNSUPPORTED", "REBIND_REQUIRED"]},
+          "detail": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}
