@@ -59,6 +59,23 @@ belt B result to
 topology, semantic, and UV hashes stayed unchanged. Restore returned all three
 baseline hashes above.
 
+Protected source signatures (topology / rest / UV) were:
+
+```text
+pants: 6116908a43c93298f4899df1ea8a7b98b237f9e21d8c1b85567b727f383f4d50 /
+       0cfd5fddd9e42ba6389e71d69b4072395305e79d1c70430b2959822e485f2e8d /
+       479a460a405f04d06722115c4c147e18272827ecc641ef5098f34f5cd9356f56
+belt A: f2e57a3022901760182b83117f2d97e5d6abad1109fe1cb74438f7efe3cdba2e /
+        f087c1bd70a2a1fcd7e0ac5bb2245b1d0f96058fbb88d4f9f0faa3dfc70d1b81 /
+        6ad2ca455cb52aae2703120a8220f5840d368c17c76f86aa7a861b568732c805
+belt B: f2e57a3022901760182b83117f2d97e5d6abad1109fe1cb74438f7efe3cdba2e /
+        4a98d131f78593fdadcbaeb6d8547236647e6bcfd8cfd135b9d3eab0c60c44f7 /
+        6ad2ca455cb52aae2703120a8220f5840d368c17c76f86aa7a861b568732c805
+```
+
+All three source signatures matched the baseline in every edit, swap, restore,
+and read-only report.
+
 ## Learning Gate
 
 `PASS` for this bounded capability. The basis-relative lower-body depth
