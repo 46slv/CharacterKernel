@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "candidate_id": "synthetic-character-001",
+  "runtime": {
+    "host": "synthetic",
+    "host_version": "0"
+  },
+  "body": {
+    "topology_revision": "body-topology-v1",
+    "evaluated_rest_shape_revision": "body-rest-v2",
+    "semantic_revision": "body-semantics-v1",
+    "uv_revision": "body-uv-v1"
+  },
+  "rig": {
+    "schema_revision": "humanoid-rig-v1",
+    "instance_revision": "rig-instance-v2",
+    "bind_revision": "bind-v2"
+  },
+  "dependencies": {
+    "status": "VALID",
+    "rebind_required": []
+  },
+  "checks": {
+    "topology": "PASS",
+    "attachments": "PASS"
+  }
+}

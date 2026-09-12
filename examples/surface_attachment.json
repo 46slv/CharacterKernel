@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "attachment_id": "hair.bangs.root.001",
+  "kind": "HAIR_ROOT",
+  "target_surface_id": "SCALP_FIT",
+  "target_topology_revision": "scalp-topology-v1",
+  "target_semantic_revision": "scalp-semantics-v1",
+  "space": "TARGET_LOCAL",
+  "unit_scale_meters": 1.0,
+  "coordinate": {
+    "type": "BARYCENTRIC_TRIANGLE",
+    "triangle_id": 0,
+    "weights": [0.2, 0.3, 0.5]
+  },
+  "normal_offset": 0.002,
+  "orientation_hint": [0.0, 1.0, 0.0]
+}

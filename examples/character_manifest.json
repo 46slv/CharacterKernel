@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "character_id": "synthetic-character-001",
+  "kernel": {
+    "topology_family": "humanoid-stylized-v1",
+    "topology_revision": "body-topology-v1",
+    "semantic_revision": "body-semantics-v1",
+    "rig_schema_revision": "humanoid-rig-v1"
+  },
+  "components": {
+    "hair": ["hair.synthetic.a"],
+    "garments": ["garment.synthetic.top"],
+    "accessories": []
+  }
+}
