@@ -45,6 +45,26 @@ tests/      mechanical guards and regression tests
 fixtures/   synthetic or redistribution-safe test inputs
 ```
 
+## Sanitized Blender wearable proof
+
+`scripts/blender_asset_proof.py` is a deterministic Blender builder/adapter for
+the bounded asset contract. It generates a public-safe body, pants target, and
+belt A/B sources, then runs the fresh-process refit/swap/restore and corruption
+checks. Evidence is written under the ignored `evidence/local/` directory.
+
+```powershell
+blender `
+  -b --factory-startup --python scripts\blender_asset_proof.py -- `
+  --mode roundtrip --out evidence\local\blender_asset_port
+
+python scripts\validate_blender_port.py `
+  evidence\local\blender_asset_port\roundtrip_evidence.json
+```
+
+The fixture is structural evidence only. Identity fitting, production garment
+quality, cloth simulation, expressions, tracking, and consumer export remain
+unsupported by this proof.
+
 ## Public-repository policy
 
 Do not commit credentials, session data, private conversations, personal absolute paths, computer names, raw local logs, or unreviewed production assets. Prefer synthetic fixtures and sanitized evidence summaries.

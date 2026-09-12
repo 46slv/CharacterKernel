@@ -54,3 +54,38 @@ Those reports are useful migration inputs, not source code present in this repos
 Do not add identity fitting, full garment simulation, expression systems, consumer export, or a new operator/harness merely to make the repository look complete.
 
 The port is complete when the public-safe implementation reproduces the bounded editable-core behavior with evidence tied to exact repository revisions.
+
+## Sanitized wearable port status
+
+The task branch now carries a small Blender adapter and deterministic synthetic
+fixture in `scripts/blender_asset_proof.py`. It reuses the core
+`SurfaceAttachment` representation and keeps Blender access outside
+`src/character_kernel/`. The pure `wearables` module only models variant
+selection and batch validation; fitted meshes remain derived scene state.
+
+| Capability | Public proof | Status |
+|---|---|---|
+| Surface correspondence | 32 pants + 36 belt A/B attachments evaluated in Blender | PASS |
+| revision mismatch | corrupted belt target topology rejects with `REBIND_REQUIRED` | PASS |
+| supported body edit | Basis-relative lower-body depth shape-key pair changes evaluated rest shape | PASS (synthetic fixture only) |
+| fitted pants | body correspondence refits a separate pants result; source signature unchanged | PASS |
+| fitted belt | pants waistband correspondence refits the active result | PASS |
+| A/B swap | source A -> B -> A with result replacement and protected source signatures | PASS |
+| restore | body, pants, and belt A hashes return to baseline | PASS |
+| read-only report | fresh process, scene-sensitive semantic payload, blend SHA before/after | PASS |
+| fresh-process edit | build -> edit -> re-edit -> restore -> verify in independent Blender processes | PASS |
+
+The exact runtime/candidate/evidence tuple is recorded by the local
+`roundtrip_evidence.json` and its host-independent validator. The shape-key
+deformation is deliberately recorded as a fixture probe, not a general fitting
+rule. Identity fitting, full cloth/pattern authoring, expressions, tracking,
+consumer export, and production visual approval remain out of scope.
+
+### Reuse boundary
+
+Reusable in this port: the existing `SurfaceAttachment` evaluator, deterministic
+topology/semantic/UV hashing, dependency closure, separate source/result
+identity, immutable variant selection, batch validation, and fresh-process
+reporting. Fixture-specific and intentionally not promoted: the low-poly ring
+geometry/materials, waistband face list, buckle dimensions, and the
+basis-relative lower-body depth shape-key deformation.
